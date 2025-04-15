@@ -1,0 +1,19 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: BTCC
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+      - name: install
+        run: npm install
+      - name: test
+        run: npm test
